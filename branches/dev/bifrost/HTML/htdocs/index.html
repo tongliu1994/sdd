@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+      <!-- Include Twitter Bootstrap and jQuery: -->
+      <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/bootstrap.js"></script>
+      
+      <!-- Include Bootstrap Multiselect CSS, JS -->
+      <link rel="stylesheet" href="css/bootstrap-multiselect.css" />
+      <script src="js/bootstrap-multiselect.js"></script>
+      
+      <link href="css/multiple-select.css" rel="stylesheet"/>
+      <link href="js/bootstrap.js" rel="stylesheet"/>
+      <link href="css/bootstrap.css" rel="stylesheet"/>
+      
+      <!-- Custom styles for this template -->
+      <link href="Signin%20Template%20for%20Bootstrap_files/signin.css" rel="stylesheet">
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <title>Stock Information Request Form</title>
+  </head>
+  <body>
+      <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+            <h1>Stock Information Request Form</h1>
+            <div class="form-group">
+			<form action="http://128.113.151.20/cgi-bin/test2.cgi" method="post">
+                <label for="InputName">Enter Ticker</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Ticker" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        </div>
+            </div>
+            <div class="form-group">
+                <label for="InputName">Enter Market</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="MarketName" id="MarketName" placeholder="Enter Market">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        </div>
+            </div>
+            <h2>Fields</h2>
+            <div class="checkbox">
+                <label><input type="checkbox" value="1" id="OpeningVal">Opening Value</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" value="1" id="ClosingVal">Closing Value</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" value="1" id="LatestVal">Latest Value</label>
+            </div>
+            <div class="form-group">
+                <h3>Others</h3>
+                <div>
+                    <select class="form-control" name="OtherFields" id="OtherFields" multiple="multiple" size = 20>
+                        <option value="AfterHoursChangeRealtime"> AfterHoursChangeRealtime </option>
+                        <option value="AnnualizedGain">AnnualizedGain</option>
+                        <option value="Ask">Ask</option>
+                        <option value="AskRealtime">AskRealtime</option>
+                        <option value="AskSize">AskSize</option>
+                        <option value="AverageDailyVolume">AverageDailyVolume</option>
+                        <option value="Bid">Bid</option>
+                        <option value="BidRealtime">BidRealtime</option>
+                        <option value="BidSize">BidSize</option>
+                        <option value="BookValuePerShare">BookValuePerShare</option>
+                        <option value="Change">Change</option>
+                        <option value="Change_ChangeInPercent">Change_ChangeInPercent</option>
+                        <option value="ChangeFromFiftydayMovingAverage">ChangeFromFiftydayMovingAverage</option>
+                        <option value="ChangeFromTwoHundreddayMovingAverage">ChangeFromTwoHundreddayMovingAverage</option>
+                        <option value="ChangeFromYearHigh">ChangeFromYearHigh</option>
+                        <option value="ChangeFromYearLow">ChangeFromYearLow</option>
+                        <option value="ChangeInPercent">ChangeInPercent</option>
+                        <option value="ChangeInPercentRealtime">ChangeInPercentRealtime</option>
+                        <option value="ChangeRealtime">ChangeRealtime</option>
+                        <option value="Commission">Commission</option>
+                        <option value="Currency">Currency</option>
+                        <option value="DaysHigh">DaysHigh</option>
+                        <option value="DaysLow">DaysLow</option>
+                        <option value="DaysRange">DaysRange</option>
+                        <option value="DaysRangeRealtime">DaysRangeRealtime</option>
+                        <option value="DaysValueChange">DaysValueChange</option>
+                        <option value="DaysValueChangeRealtime">DaysValueChangeRealtime</option>
+                        <option value="DividendPayDate">DividendPayDate</option>
+                        <option value="TrailingAnnualDividendYield">TrailingAnnualDividendYield</option>
+                        <option value="TrailingAnnualDividendYieldInPercent">TrailingAnnualDividendYieldInPercent</option>
+                        <option value="DilutedEPS">DilutedEPS</option>
+                        <option value="EBITDA">EBITDA</option>
+                        <option value="EPSEstimateCurrentYear">EPSEstimateCurrentYear</option>
+                        <option value="EPSEstimateNextQuarter">EPSEstimateNextQuarter</option>
+                        <option value="EPSEstimateNextYear">EPSEstimateNextYear</option>
+                        <option value="ExDividendDate">ExDividendDate</option>
+                        <option value="FiftydayMovingAverage">FiftydayMovingAverage</option>
+                        <option value="SharesFloat">SharesFloat</option>
+                        <option value="HighLimit">HighLimit</option>
+                        <option value="HoldingsGain">HoldingsGain</option>
+                        <option value="HoldingsGainPercent">HoldingsGainPercent</option>
+                        <option value="HoldingsGainPercentRealtime">HoldingsGainPercentRealtime</option>
+                        <option value="HoldingsGainRealtime">HoldingsGainRealtime</option>
+                        <option value="HoldingsValue">HoldingsValue</option>
+                        <option value="HoldingsValueRealtime">HoldingsValueRealtime</option>
+                        <option value="LastTradeDate">LastTradeDate</option>
+                        <option value="LastTradePriceOnly">LastTradePriceOnly</option>
+                        <option value="LastTradeRealtimeWithTime ">LastTradeRealtimeWithTime </option>
+                        <option value="LastTradeSize">LastTradeSize</option>
+                        <option value="LastTradeTime">LastTradeTime</option>
+                        <option value="LastTradeWithTime ">LastTradeWithTime </option>
+                        <option value="LowLimit">LowLimit</option>
+                        <option value="MarketCapitalization">MarketCapitalization</option>
+                        <option value="MarketCapRealtime">MarketCapRealtime</option>
+                        <option value="MoreInfo">MoreInfo</option>
+                        <option value="Name">Name</option>
+                        <option value="Notes">Notes</option>
+                        <option value="OneyrTargetPrice">OneyrTargetPrice</option>
+                        <option value="Open">Open</option>
+                        <option value="OrderBookRealtime">OrderBookRealtime</option>
+                        <option value="PEGRatio">PEGRatio</option>
+                        <option value="PERatio">PERatio</option>
+                        <option value="PERatioRealtime">PERatioRealtime</option>
+                        <option value="PercentChangeFromFiftydayMovingAverage">PercentChangeFromFiftydayMovingAverage</option>
+                        <option value="PercentChangeFromTwoHundreddayMovingAverage">PercentChangeFromTwoHundreddayMovingAverage</option>
+                        <option value="ChangeInPercentFromYearHigh">ChangeInPercentFromYearHigh</option>
+                        <option value="PercentChangeFromYearLow">PercentChangeFromYearLow</option>
+                        <option value="PreviousClose">PreviousClose</option>
+                        <option value="PriceBook">PriceBook</option>
+                        <option value="PriceEPSEstimateCurrentYear">PriceEPSEstimateCurrentYear</option>
+                        <option value="PriceEPSEstimateNextYear ">PriceEPSEstimateNextYear </option>
+                        <option value="PricePaid">PricePaid</option>
+                        <option value="PriceSales">PriceSales</option>
+                        <option value="Revenue">Revenue</option>
+                        <option value="SharesOwned">SharesOwned</option>
+                        <option value="SharesOutstanding">SharesOutstanding</option>
+                        <option value="ShortRatio">ShortRatio</option>
+                        <option value="StockExchange">StockExchange</option>
+                        <option value="Symbol">Symbol</option>
+                        <option value="TickerTrend">TickerTrend</option>
+                        <option value="TradeDate">TradeDate</option>
+                        <option value="TradeLinks">TradeLinks</option>
+                        <option value="TradeLinksAdditional">TradeLinksAdditional</option>
+                        <option value="TwoHundreddayMovingAverage">TwoHundreddayMovingAverage</option>
+                        <option value="Volume">Volume</option>
+                        <option value="YearHigh">YearHigh</option>
+                        <option value="YearLow">YearLow</option>
+                        <option value="YearRange">YearRange</option>
+                    </select>
+                </div>
+            </div>
+            <button id="DownloadButton">Create file</button>
+            <div id="generated" style="display:none">
+              <h2>Stock Fields Request XML</h2>
+              <a href="#" id="DownloadLink">Download</a>
+              <textarea id="ResultXml" style="width: 100%; height: 30em" readonly="readonly"></textarea>
+            </div>
+			<div>
+			    <A HREF="http://128.113.151.20/cgi-bin/helloworld.cgi">CGI Script</A>
+
+			</div>
+			</form>
+        </div>
+      </div>
+
+
+<script id="jsbin-source-javascript" type="text/javascript">$(function () {
+    $(document).ready(function() {
+        $('#OtherFields').multiselect();
+    });
+  $('#DownloadButton').click(update);
+
+});
+
+var template = [
+    '<?xml version="1.0" encoding="ASCII"?>',
+    '<TickerValues>',
+    '  <ticker symbol="<?InputName?>" market="<?MarketName?>">'
+];
+
+var textanswer = {
+    true : 'Yes',
+    false : 'No'
+};
+
+var boolanswer = {
+    'Yes' : true,
+    'No' : false
+};
+
+function addfields(variables) {
+    for (var key in variables) {
+        if (variables[key] == true) {
+            template.push('    <field>'+key+'</field>');
+        }
+    }
+    var OtherFields = $('select#OtherFields').val();
+    for (var field in OtherFields) {
+        template.push('    <field>'+OtherFields[field]+'</field>');
+    }
+    template.push('  </ticker>');
+    template.push('</data>');
+    template = template.join('\r\n');
+}
+
+function update() {
+  var variables = {
+    'InputName': $('#InputName').val(),
+    'MarketName': $('#MarketName').val(),
+    'OpeningVal': $('#OpeningVal').prop('checked'),
+    'ClosingVal': $('#ClosingVal').prop('checked'),
+    'LatestVal': $('#LatestVal').prop('checked'),
+  };
+  
+  addfields(variables);
+  
+  var newXml = template.replace(/<\?(\w+)\?>/g,
+    function(match, name) {
+      return variables[name];
+    });
+
+  
+  $('#ResultXml').val(newXml);
+  $('#DownloadLink')
+    .attr('href', 'data:text/xml;base64,' + btoa(newXml))
+    .attr('download', variables['InputName']+'request.xml');
+  $('#generated').show();
+}
+
+if (!window.btoa) {
+  // Source: http://www.koders.com/javascript/fid78168FE1380F7420FB7B7CD8BAEAE58929523C17.aspx
+  btoa = function (input) {
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+    
+    var result = '';
+    var chr1, chr2, chr3;
+    var enc1, enc2, enc3, enc4;
+    var i = 0;
+    
+    do {
+      chr1 = input.charCodeAt(i++);
+      chr2 = input.charCodeAt(i++);
+      chr3 = input.charCodeAt(i++);
+      
+      enc1 = chr1 >> 2;
+      enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+      enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+      enc4 = chr3 & 63;
+      
+      if (isNaN(chr2)) {
+        enc3 = enc4 = 64;
+      } else if (isNaN(chr3)) {
+        enc4 = 64;
+      }
+      
+      result += chars.charAt(enc1) + chars.charAt(enc2) + chars.charAt(enc3) + chars.charAt(enc4);
+    } while (i < input.length);
+      
+    return result;
+  };
+}</script></body>
+</html>

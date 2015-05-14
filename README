@@ -1,0 +1,5 @@
+The Odin Analytics Suite is a cost-efficient modular plugin based application, intended to fulfill the stock market data requirements of hedge funds and investment banks that want to build a customized solution for their individual needs.
+
+The core set of features of Odin include the Yggdrasil core backend, with support for pre-built or custom stock feed handlers, databasing of feed history and analytical data, and support for analytic engine plugins. 
+
+Odin will use a cross platform user interface, implemented using HTML5, CSS3, Javascript and server side scripts. 

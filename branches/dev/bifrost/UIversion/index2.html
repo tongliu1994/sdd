@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+      <!-- Include Twitter Bootstrap and jQuery: -->
+      <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/bootstrap.js"></script>
+      
+      <!-- Include Bootstrap Multiselect CSS, JS -->
+      <link rel="stylesheet" href="css/bootstrap-multiselect.css" />
+      <script src="js/bootstrap-multiselect.js"></script>
+      
+      <link href="css/multiple-select.css" rel="stylesheet"/>
+      
+<script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <title>Stock Information Request Form</title>
+  </head>
+  <body>
+    <h1>Stock Information Request Form</h1>
+    <h2>Fields</h2>
+    <table>
+      <tr>
+        <td width="200px">Random Select Box1:</td>
+        <td>
+          <select id="SkipProductKey">
+            <option value="Yes" selected="selected">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td width="200px">Random Select Box2:</td>
+        <td>
+          <select id="SkipAutoActivation">
+            <option value="Yes" selected="selected">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <div class="checkbox">
+        <label><input type="checkbox" value="1" id="OpeningVal">Opening Value</label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" value="1" id="ClosingVal">Closing Value</label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" value="1" id="LatestVal">Latest Value</label>
+    </div>
+    <div class="form-group">
+        <h3>Others</h3>
+        <div>
+            <select class="form-control" name="browsers" multiple>
+                <option value="AfterHoursChangeRealtime"> AfterHoursChangeRealtime </option>
+                <option value="AnnualizedGain">AnnualizedGain</option>
+                <option value="Ask">Ask</option>
+                <option value="AskRealtime">AskRealtime</option>
+                <option value="AskSize">AskSize</option>
+                <option value="AverageDailyVolume">AverageDailyVolume</option>
+            </select>
+        </div>
+    </div>
+    
+    <button id="enableBtn">Enable</button>
+    <button id="disableBtn">Disabled</button>
+    <select multiple="multiple">
+        <option value="AfterHoursChangeRealtime"> AfterHoursChangeRealtime </option>
+        <option value="AnnualizedGain">AnnualizedGain</option>
+        <option value="Ask">Ask</option>
+        <option value="AskRealtime">AskRealtime</option>
+        <option value="AskSize">AskSize</option>
+        <option value="AverageDailyVolume">AverageDailyVolume</option>
+    </select>
+    <script src="jquery.multiple.select.js"></script>
+    <script>
+        $("select").multipleSelect();
+        $("#setSelectsBtn").click(function() {
+        $("select").multipleSelect("enable");
+        });
+        $("#getSelectsBtn").click(function() {
+        $("select").multipleSelect("disable");
+        });
+    </script>
+    
+    <button id="DownloadButton">Create file</button>
+    <div id="generated" style="display:none">
+      <h2>stockrequest.xml</h2>
+      <a href="#" id="DownloadLink">Download</a>
+      <textarea id="ResultXml" style="width: 100%; height: 30em" readonly="readonly"></textarea>
+    </div>
+  <script id="jsbin-javascript">
+$(function () {
+  $('#DownloadButton').click(update);
+});
+
+var template = [
+    '<?xml version="1.0"?>',
+    '<Fields>',
+    '   <OpeningVal><?OpeningVal?></OpeningVal>',
+    '   <ClosingVal><?ClosingVal?></ClosingVal>',
+    '   <LatestVal><?LatestVal?></LatestVal>',
+    '</Fields>'
+].join('\r\n');
+
+var textanswer = {
+    true : 'Yes',
+    false : 'No'
+};
+  
+var boolanswer = {
+  'Yes' : true,
+  'No' : false
+};
+
+function update() {
+  var variables = {
+      'SkipProductKey': boolanswer[$('#SkipProductKey').val()],
+      'SkipAutoActivation': boolanswer[$('#SkipAutoActivation').val()],
+      'OpeningVal': $('#OpeningVal').prop('checked'),
+      'ClosingVal': $('#ClosingVal').prop('checked'),
+      'LatestVal': $('#LatestVal').prop('checked'),
+  };
+  
+  var newXml = template.replace(/<\?(\w+)\?>/g,
+    function(match, name) {
+      return variables[name];
+    });
+
+  
+  $('#ResultXml').val(newXml);
+  $('#DownloadLink')
+    .attr('href', 'data:text/xml;base64,' + btoa(newXml))
+    .attr('download', 'stockrequest.xml');
+  $('#generated').show();
+}
+
+if (!window.btoa) {
+  // Source: http://www.koders.com/javascript/fid78168FE1380F7420FB7B7CD8BAEAE58929523C17.aspx
+  btoa = function (input) {
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+    
+    var result = '';
+    var chr1, chr2, chr3;
+    var enc1, enc2, enc3, enc4;
+    var i = 0;
+    
+    do {
+      chr1 = input.charCodeAt(i++);
+      chr2 = input.charCodeAt(i++);
+      chr3 = input.charCodeAt(i++);
+      
+      enc1 = chr1 >> 2;
+      enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+      enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+      enc4 = chr3 & 63;
+      
+      if (isNaN(chr2)) {
+        enc3 = enc4 = 64;
+      } else if (isNaN(chr3)) {
+        enc4 = 64;
+      }
+      
+      result += chars.charAt(enc1) + chars.charAt(enc2) + chars.charAt(enc3) + chars.charAt(enc4);
+    } while (i < input.length);
+      
+    return result;
+  };
+}
+</script>
+
+<script id="jsbin-source-html" type="text/html"><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+<script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"><\/script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"><\/script>
+    <title>Windows 7 Answer File Generator</title>
+  </head>
+  <body>
+    <h1>Windows 7 Answer File Generator</h1>
+    <h2>General Settings</h2>
+    <table>
+      <tr>
+        <td width="200px">Random Select Box1:</td>
+        <td>
+          <select id="SkipProductKey">
+            <option value="Yes" selected="selected">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td width="200px">Random Select Box2:</td>
+        <td>
+          <select id="SkipAutoActivation">
+            <option value="Yes" selected="selected">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <div class="checkbox">
+    <label><input type="checkbox" value="1" id="OpeningVal">Opening Value</label>
+    </div>
+    <div class="checkbox">
+    <label><input type="checkbox" value="1" id="ClosingVal">Closing Value</label>
+    </div>
+    <div class="checkbox">
+    <label><input type="checkbox" value="1" id="LatestVal">Latest Value</label>
+    </div>
+    <div class="form-group">
+        <h3>Others</h3>
+        <div>
+            <select class="form-control" name="browsers" multiple>
+                <option value="AfterHoursChangeRealtime"> AfterHoursChangeRealtime </option>
+                <option value="AnnualizedGain">AnnualizedGain</option>
+                <option value="Ask">Ask</option>
+                <option value="AskRealtime">AskRealtime</option>
+                <option value="AskSize">AskSize</option>
+                <option value="AverageDailyVolume">AverageDailyVolume</option>
+            </select>
+        </div>
+    </div>
+    <button id="DownloadButton">Create file</button>
+    <div id="generated" style="display:none">
+      <h2>autounattended.xml</h2>
+      <a href="#" id="DownloadLink">Download</a>
+      <textarea id="ResultXml" style="width: 100%; height: 30em" readonly="readonly"></textarea>
+    </div>
+  </body>
+</html></script>
+
+
+<script id="jsbin-source-javascript" type="text/javascript">$(function () {
+  $('#DownloadButton').click(update);
+});
+
+var template = [
+    '<?xml version="1.0"?>',
+    '<Fields>',
+    '   <OpeningVal><?OpeningVal?></OpeningVal>',
+    '   <ClosingVal><?ClosingVal?></ClosingVal>',
+    '   <LatestVal><?LatestVal?></LatestVal>',
+    '</Fields>'
+].join('\r\n');
+
+var textanswer = {
+    true : 'Yes',
+    false : 'No'
+};
+
+var boolanswer = {
+    'Yes' : true,
+    'No' : false
+};
+
+function update() {
+  var variables = {
+    'SkipProductKey': boolanswer[$('#SkipProductKey').val()],
+    'SkipAutoActivation': boolanswer[$('#SkipAutoActivation').val()],
+    'OpeningVal': $('#OpeningVal').prop('checked'),
+    'ClosingVal': $('#ClosingVal').prop('checked'),
+    'LatestVal': $('#LatestVal').prop('checked'),
+  };
+  
+  var newXml = template.replace(/<\?(\w+)\?>/g,
+    function(match, name) {
+      return variables[name];
+    });
+
+  
+  $('#ResultXml').val(newXml);
+  $('#DownloadLink')
+    .attr('href', 'data:text/xml;base64,' + btoa(newXml))
+    .attr('download', 'stockrequest.xml');
+  $('#generated').show();
+}
+
+if (!window.btoa) {
+  // Source: http://www.koders.com/javascript/fid78168FE1380F7420FB7B7CD8BAEAE58929523C17.aspx
+  btoa = function (input) {
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+    
+    var result = '';
+    var chr1, chr2, chr3;
+    var enc1, enc2, enc3, enc4;
+    var i = 0;
+    
+    do {
+      chr1 = input.charCodeAt(i++);
+      chr2 = input.charCodeAt(i++);
+      chr3 = input.charCodeAt(i++);
+      
+      enc1 = chr1 >> 2;
+      enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+      enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+      enc4 = chr3 & 63;
+      
+      if (isNaN(chr2)) {
+        enc3 = enc4 = 64;
+      } else if (isNaN(chr3)) {
+        enc4 = 64;
+      }
+      
+      result += chars.charAt(enc1) + chars.charAt(enc2) + chars.charAt(enc3) + chars.charAt(enc4);
+    } while (i < input.length);
+      
+    return result;
+  };
+}</script></body>
+</html>

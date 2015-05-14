@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='ASCII'?>
+<data>
+  <ticker symbol="FB" market="DJI">
+    <s>FB</s>
+    <n>Facebook, Inc.</n>
+    <o>79.37</o>
+    <l1>80.04</l1>
+    <p>78.37</p>
+  </ticker>
+  <ticker symbol="IBM" market="DJI">
+    <n>International Bus</n>
+    <s>IBM</s>
+    <l1>162.18</l1>
+    <o>162.11</o>
+    <p>161.79</p>
+  </ticker>
+  <ticker symbol="GOOG" market="IXIC">
+    <n>Google Inc.</n>
+    <l1>543.98</l1>
+    <s>GOOG</s>
+    <o>539.32</o>
+    <p>532.71</p>
+  </ticker>
+  <ticker symbol="^XAU" market="DJI">
+    <n>PHLX Gold/Silver </n>
+    <s>^XAU</s>
+    <l1>76.25</l1>
+    <o>75.656</o>
+    <p>75.927</p>
+  </ticker>
+</data>

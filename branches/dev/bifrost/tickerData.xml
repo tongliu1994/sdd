@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<data>
+  <ticker symbol="FB" market="DJI">
+    <field>s</field>
+    <field>n</field>
+    <field>o</field>
+    <field>l1</field>
+    <field>p</field>
+  </ticker>
+  <ticker symbol="IBM" market="DJI">
+    <field>n</field>
+    <field>s</field>
+    <field>l1</field>
+    <field>o</field>
+    <field>p</field>
+  </ticker>
+  <ticker symbol="GOOG" market="IXIC">
+    <field>n</field>
+    <field>l1</field>
+    <field>s</field>
+    <field>o</field>
+    <field>p</field>
+  </ticker>
+  <ticker symbol="^XAU" market="DJI">
+    <field>n</field>
+    <field>s</field>
+    <field>l1</field>
+    <field>o</field>
+    <field>p</field>
+  </ticker>
+</data>

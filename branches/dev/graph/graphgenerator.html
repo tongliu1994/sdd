@@ -1,0 +1,91 @@
+<html>
+  <head>
+      <!-- Include Twitter Bootstrap and jQuery: -->
+      <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/bootstrap.js"></script>
+      
+      <!-- Include Bootstrap Multiselect CSS, JS -->
+      <link rel="stylesheet" href="css/bootstrap-multiselect.css" />
+      <script src="js/bootstrap-multiselect.js"></script>
+      
+      <link href="css/multiple-select.css" rel="stylesheet"/>
+      <link href="js/bootstrap.js" rel="stylesheet"/>
+      <link href="css/bootstrap.css" rel="stylesheet"/>
+      
+    <title>Stock Technical Graph Generator</title>
+  </head>
+<body>
+      <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+			<h1>Stock Technical Graph Generator</h1>
+			<form>
+				<div class="form-group">
+                <label for="InputName">Enter Ticker</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Ticker" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        </div>
+				</div>
+				<h5>Time Span</h5>
+				<div>
+				        <select class="form-control" name="Time Span" id="ChartTimeSpan">
+                        <option selected="selected" value="1d">1 Day</option>
+                        <option value="5d">5 Days</option>
+                        <option value="3m">3 Months </option>
+                        <option value="6m">6 Months</option>
+                        <option value="1y">1 Year</option>
+                        <option value="2y">2 Year</option>
+                        <option value="5y">5 Year</option>
+                        <option value="my">Maximum</option>
+						</select>
+				</div>
+				<h5>Chart Type</h5>
+				<div>
+				        <select class="form-control" name="Chart Type" id="ChartType">
+                        <option selected="selected" value="l">Line</option>
+                        <option value="b">Bar</option>
+                        <option value="c">Candle</option>
+						</select>
+				</div>
+				<h5>Chart Scale</h5>
+				<div>
+				        <select class="form-control" name="Chart Scale" id="ChartScale">
+                        <option selected="selected" value="off">Arithmetic</option>
+                        <option value="on">Logarithmic</option>
+						</select>
+				</div>
+				<h5>Moving Average Indicator</h5>
+				<div>
+				        <select class="form-control" name="Moving Average Indicator" id="MovingAverageInterval">
+                        <option selected="selected" value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+						</select>
+				</div>
+				<input type="button" id="btn" value="Generate" />
+				
+			</form>
+    <script type="text/javascript">
+        document.getElementById('btn').onclick = function() {
+			var ticker = document.getElementById('InputName').value;
+			var timespan = document.getElementById('ChartTimeSpan').value;
+			var charttype = document.getElementById('ChartType').value;
+			var scaling = document.getElementById('ChartScale').value;
+			var movingavg = document.getElementById('MovingAverageInterval').value;
+				src = 'http://chart.finance.yahoo.com/z?s=' + ticker + '&t=' + timespan + '&q=' + charttype + '&l=' + scaling + '&z=l&p=m' + movingavg;
+				//src = 'http://chart.finance.yahoo.com/z?s=' + ticker + '&t=' + timespan + '&q=' + charttype + '&l='  scaling + '&z=l&p=m50,e200';
+				//src = 'http://chart.finance.yahoo.com/z?s=' + ticker + '&t=' timespan + '&q=' + charttype + '&l=' + scaling + &z=l&p=m50,e200,v&a=p12,p
+                //src = 'http://webpage.com/images/' + val +'.png',
+                img = document.createElement('img');
+
+            img.src = src;
+            document.body.appendChild(img);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='ASCII'?>
+<TickerValues>
+  <Ticker>
+    <Name>Facebook, Inc.</Name>
+    <Symbol>FB</Symbol>
+    <LatestValue>74.31</LatestValue>
+    <OpeningValue>73.20</OpeningValue>
+    <ClosingValue>72.91</ClosingValue>
+  </Ticker>
+  <Ticker>
+    <Name>XAU</Name>
+    <Symbol>XAU</Symbol>
+    <LatestValue>0.00</LatestValue>
+    <OpeningValue>N/A</OpeningValue>
+    <ClosingValue>N/A</ClosingValue>
+  </Ticker>
+  <Ticker>
+    <Name>International Bus</Name>
+    <Symbol>IBM</Symbol>
+    <LatestValue>185.63</LatestValue>
+    <OpeningValue>185.48</OpeningValue>
+    <ClosingValue>185.93</ClosingValue>
+  </Ticker>
+  <Ticker>
+    <Name>Google Inc.</Name>
+    <Symbol>GOOG</Symbol>
+    <LatestValue>542.50</LatestValue>
+    <OpeningValue>544.99</OpeningValue>
+    <ClosingValue>544.49</ClosingValue>
+  </Ticker>
+</TickerValues>

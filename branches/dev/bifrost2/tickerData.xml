@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <items>
+        <item ticker="FB"></item>
+        <item ticker="XAU"></item>
+        <item ticker="IBM"></item>
+        <item ticker="GOOG"></item>
+    </items>
+</data>
